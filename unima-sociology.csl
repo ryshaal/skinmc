@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+  class="in-text"
+  version="1.0"
+  name="Unima Sociology"
+  default-locale="en-US"
+  demote-non-dropping-particle="never">
+
+  <info>
+    <title>Unima Sociology</title>
+    <id>http://www.zotero.org/styles/unima-sociology</id>
+    <link href="http://www.zotero.org/styles/unima-sociology" rel="self"/>
+    <author>
+      <name>Risal</name>
+      <email>unima.sociology@example.com</email>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2025-10-28T00:00:00+00:00</updated>
+    <summary>
+      Citation style for Universitas Negeri Manado, Sociology Department — single spacing, no parentheses around year, italic book/journal titles, and translated titles for English works.
+    </summary>
+  </info>
+
+  <!-- Macros -->
+  <macro name="author">
+    <names variable="author">
+      <name form="long" initialize-with=". " delimiter=", " and="text"/>
+    </names>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <choose>
+      <if type="book">
+        <group delimiter=". ">
+          <text variable="title" font-style="italic"/>
+          <text variable="translated-title"/>
+        </group>
+      </if>
+      <else-if type="article-journal">
+        <group delimiter=". ">
+          <text variable="title"/>
+          <text variable="translated-title"/>
+        </group>
+      </else-if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="container">
+    <choose>
+      <if type="article-journal">
+        <group delimiter=" ">
+          <text variable="container-title" font-style="italic"/>
+          <text variable="volume"/>
+          <group prefix="(" suffix=")">
+            <text variable="issue"/>
+          </group>
+          <text variable="page" prefix=": "/>
+        </group>
+      </if>
+      <else-if type="book">
+        <group delimiter=": ">
+          <text variable="publisher-place"/>
+          <text variable="publisher"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- Citation Layout -->
+  <citation>
+    <layout prefix="" suffix=".">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- Bibliography Layout -->
+  <bibliography hanging-indent="false" line-spacing="1" entry-spacing="1">
+    <layout suffix=".">
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="issued"/>
+        <text macro="title"/>
+        <text macro="container"/>
+      </group>
+    </layout>
+  </bibliography>
+
+</style>
